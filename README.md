@@ -13,4 +13,5 @@ This repository is a small learning note and will be expanded as i continue
 studying polymer-related representations.
  # Next Steps
 * Try structural representations for polymer systems
+* Try MatGL GPU version
    
