@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 
 def make_nacl_rocksalt():
-    """단순한 NaCl rocksalt 구조 (연습용)"""
     a = 5.64
     lattice = Lattice.cubic(a)
 
@@ -20,11 +19,9 @@ def make_nacl_rocksalt():
 
 
 def make_srtio3_perovskite():
-    """간단한 SrTiO3 perovskite 구조 (연습용)"""
     a = 3.905
     lattice = Lattice.cubic(a)
 
-    # A(B)O3 perovskite 기본 위치
     species = ["Sr", "Ti", "O", "O", "O"]
     coords = [
         [0.0, 0.0, 0.0],           # Sr at corner
@@ -40,7 +37,6 @@ def make_srtio3_perovskite():
 
 
 def matgl_graph_and_plot(struct, element_types, title, filename):
-    """Structure → MatGL 그래프 → 3D 산점도 저장"""
     s2g = Structure2Graph(
         element_types=element_types,
         cutoff=5.0,
