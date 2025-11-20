@@ -2,15 +2,14 @@ from pymatgen.core import Lattice, Structure
 from matgl.ext.pymatgen import Structure2Graph
 import matplotlib.pyplot as plt
 
-# 1) Si cubic primitive cell
 lattice = Lattice.cubic(5.43)
 coords = [[0, 0, 0], [0.25, 0.25, 0.25]]
 species = ["Si", "Si"]
 
 si = Structure(lattice, species, coords)
-si_super = si * (2, 2, 2)   # 노드 수 늘리기
+si_super = si * (2, 2, 2)   
 
-# 2) Structure → Graph
+
 s2g = Structure2Graph(
     element_types=["Si"],
     cutoff=4.0
@@ -23,7 +22,6 @@ print("노드 개수:", g.num_nodes())
 print("엣지 개수:", g.num_edges())
 print("state_attr:", state_attr)
 
-# 3) 좌표 시각화
 coords_cart = si_super.cart_coords
 x, y, z = coords_cart[:, 0], coords_cart[:, 1], coords_cart[:, 2]
 
