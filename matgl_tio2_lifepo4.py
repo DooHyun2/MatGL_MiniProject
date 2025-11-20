@@ -4,13 +4,10 @@ import matplotlib.pyplot as plt
 
 
 def make_tio2_rutile():
-    """매우 간단화한 rutile TiO2 구조 (시각화/MatGL 연습용)"""
-    # 대략적인 rutile TiO2 격자 (tetragonal)
     a = 4.59
     c = 2.96
     lattice = Lattice.tetragonal(a, c)
 
-    # Ti 2개, O 4개 (fractional coords, 실제 값과 약간 다를 수 있음)
     u = 0.305
     species = ["Ti", "Ti", "O", "O", "O", "O"]
     coords = [
@@ -23,17 +20,15 @@ def make_tio2_rutile():
     ]
 
     struct = Structure(lattice, species, coords)
-    # 슈퍼셀로 살짝 키워도 됨: struct = struct * (2, 2, 2)
     return struct
 
 
 def make_lifepo4_olivine():
-    """매우 단순화한 LiFePO4-like olivine 구조 (정확한 실험 구조 X, 연습용)"""
-    # 대략적인 olivine LiFePO4 격자 (orthorhombic)
+
     a, b, c = 10.3, 6.0, 4.7
     lattice = Lattice.orthorhombic(a, b, c)
 
-    # Li, Fe, P, O 몇 개만 배치한 장난감 구조 (실제와 다를 수 있음)
+    # Li, Fe, P, O 몇 개만 배치
     species = [
         "Li", "Li",
         "Fe", "Fe",
@@ -59,13 +54,10 @@ def make_lifepo4_olivine():
     ]
 
     struct = Structure(lattice, species, coords)
-    # 보기 좋게 약간 키우고 싶으면 주석 해제
-    # struct = struct * (2, 1, 1)
     return struct
 
 
 def matgl_graph_and_plot(struct, element_types, title, filename):
-    """Structure → MatGL 그래프 → 3D 산점도 저장"""
     s2g = Structure2Graph(
         element_types=element_types,
         cutoff=5.0,
