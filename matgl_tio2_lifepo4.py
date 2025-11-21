@@ -4,10 +4,12 @@ import matplotlib.pyplot as plt
 
 
 def make_tio2_rutile():
+    # 대략적인 rutile TiO2 격자 (tetragonal)
     a = 4.59
     c = 2.96
     lattice = Lattice.tetragonal(a, c)
 
+    # Ti 2개, O 4개 (fractional coords, 실제 값과 약간 다를 수 있음)
     u = 0.305
     species = ["Ti", "Ti", "O", "O", "O", "O"]
     coords = [
@@ -20,15 +22,14 @@ def make_tio2_rutile():
     ]
 
     struct = Structure(lattice, species, coords)
+    # struct = struct * (2, 2, 2)  # 필요하면 슈퍼셀
     return struct
 
 
 def make_lifepo4_olivine():
-
     a, b, c = 10.3, 6.0, 4.7
     lattice = Lattice.orthorhombic(a, b, c)
 
-    # Li, Fe, P, O 몇 개만 배치
     species = [
         "Li", "Li",
         "Fe", "Fe",
